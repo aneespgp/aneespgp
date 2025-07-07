@@ -8,7 +8,7 @@ const Contact = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">Get In Touch</h2>
           <p className="text-lg md:text-xl max-w-3xl mx-auto text-foreground/80">
-            Have a project in mind? I'd love to hear from you. Let's work together to bring your ideas to life.
+            Have a project in mind? I&apos;d love to hear from you. Let&apos;s work together to bring your ideas to life.
           </p>
         </div>
         

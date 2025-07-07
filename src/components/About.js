@@ -8,7 +8,7 @@ const About = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">Glad to see you here!</h2>
           <p className="text-lg md:text-xl max-w-3xl mx-auto text-foreground/80 leading-relaxed">
-            I'm a full-stack developer who has turned years of freelancing into a full-time career. Being a full-stack allows me to not only develop client-facing apps and websites but also develop it with cutting edge frontend and backend support.
+            I&apos;m a full-stack developer who has turned years of freelancing into a full-time career. Being a full-stack allows me to not only develop client-facing apps and websites but also develop it with cutting edge frontend and backend support.
           </p>
           <br />
           <p className="text-lg md:text-xl max-w-3xl mx-auto text-foreground/80 leading-relaxed">

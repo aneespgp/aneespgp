@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { FaGithub, FaEye } from 'react-icons/fa';
 
 const GitHubStats = () => {
@@ -13,9 +14,11 @@ const GitHubStats = () => {
               <FaGithub className="mr-2 text-primary" />
               GitHub Stats
             </h3>
-            <img 
+            <Image 
               src="https://github-readme-stats.vercel.app/api?username=anees-tech&show_icons=true&count_private=true&hide_border=true&theme=dark" 
               alt="GitHub Stats" 
+              width={500}
+              height={200}
               className="w-full rounded-lg"
             />
           </div>
@@ -25,9 +28,11 @@ const GitHubStats = () => {
               <FaGithub className="mr-2 text-accent" />
               Top Languages
             </h3>
-            <img 
+            <Image 
               src="https://github-readme-stats.vercel.app/api/top-langs/?username=anees-tech&hide_border=true&layout=compact&theme=dark" 
               alt="Top Languages" 
+              width={500}
+              height={200}
               className="w-full rounded-lg"
             />
           </div>
@@ -36,9 +41,11 @@ const GitHubStats = () => {
         <div className="text-center">
           <div className="inline-flex items-center bg-card px-6 py-3 rounded-full border border-border shadow-lg">
             <FaEye className="mr-2 text-primary" />
-            <img 
+            <Image 
               src="https://komarev.com/ghpvc/?username=anees-tech&&style=flat-square" 
               alt="Profile Views" 
+              width={150}
+              height={24}
               className="h-6"
             />
           </div>

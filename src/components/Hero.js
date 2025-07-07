@@ -5,13 +5,13 @@ const Hero = () => {
   return (
     <section className="bg-gradient-to-br from-primary/10 via-background to-accent/10 min-h-screen flex flex-col justify-center items-center text-center px-4 relative">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-2xl md:text-3xl mb-4 text-foreground/80">Hey 👋, I'm</h1>
+        <h1 className="text-2xl md:text-3xl mb-4 text-foreground/80">Hey 👋, I&apos;m</h1>
         <h2 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">
           <span className="text-primary">Anees-ur-Rehman!</span>
         </h2>
         <p className="text-xl md:text-2xl mb-4 text-muted font-medium">Full Stack Developer</p>
         <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-foreground/80">
-          I'm a full-stack developer who has turned years of freelancing into a full-time career. 
+          I&apos;m a full-stack developer who has turned years of freelancing into a full-time career. 
           I specialize in building robust frontend and backend applications with cutting-edge technologies.
         </p>
         

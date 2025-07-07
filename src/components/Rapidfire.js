@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { FaCode, FaLaptopCode, FaQuestionCircle, FaBolt, FaCheckCircle } from 'react-icons/fa';
 
 const Rapidfire = () => {
@@ -12,7 +13,7 @@ const Rapidfire = () => {
             <div className="flex items-start space-x-4">
               <FaCode className="text-2xl text-primary mt-1 flex-shrink-0" />
               <div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">🔭 I'm currently working on</h3>
+                <h3 className="text-lg font-semibold text-foreground mb-2">🔭 I&apos;m currently working on</h3>
                 <p className="text-foreground/80">Some Private Projects😇</p>
               </div>
             </div>
@@ -20,7 +21,7 @@ const Rapidfire = () => {
             <div className="flex items-start space-x-4">
               <FaLaptopCode className="text-2xl text-accent mt-1 flex-shrink-0" />
               <div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">🌱 I'm currently learning</h3>
+                <h3 className="text-lg font-semibold text-foreground mb-2">🌱 I&apos;m currently learning</h3>
                 <p className="text-foreground/80">New technologies like Nuxt JS, Next JS, Flutter.</p>
               </div>
             </div>
@@ -52,9 +53,11 @@ const Rapidfire = () => {
           
           <div className="flex justify-center">
             <div className="bg-card p-8 rounded-xl shadow-lg border border-border">
-              <img 
+              <Image 
                 src="https://i.ibb.co/s15mQ8P/pngegg.png" 
                 alt="Developer Illustration" 
+                width={300}
+                height={370}
                 className="w-full max-w-xs h-auto"
               />
             </div>
