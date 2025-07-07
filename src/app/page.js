@@ -9,7 +9,7 @@ import Contact from "../components/Contact";
 
 export default function Home() {
   return (
-    <div>      
+    <>
       <Hero />
       <About />
       <Rapidfire />
@@ -17,6 +17,6 @@ export default function Home() {
       <Projects />
       <GitHubStats />
       <Contact />
-    </div>
+    </>
   );
 }
