@@ -21,7 +21,7 @@ const Contact = () => {
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-card-foreground mb-1">Email</h3>
-                <p className="text-card-foreground/70">your.email@example.com</p>
+                <p className="text-card-foreground/70">aneesliaqat555@gmail.com</p>
               </div>
             </div>
             
@@ -31,7 +31,7 @@ const Contact = () => {
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-card-foreground mb-1">Phone</h3>
-                <p className="text-card-foreground/70">+1 (555) 123-4567</p>
+                <p className="text-card-foreground/70">+92 3024995093</p>
               </div>
             </div>
             
@@ -41,7 +41,7 @@ const Contact = () => {
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-card-foreground mb-1">Location</h3>
-                <p className="text-card-foreground/70">Your City, Country</p>
+                <p className="text-card-foreground/70">Samundri, Faisalabad, Punjab, Pakistan</p>
               </div>
             </div>
           </div>
@@ -63,7 +63,7 @@ const Contact = () => {
                   <input 
                     type="email" 
                     className="w-full p-4 bg-secondary border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200" 
-                    placeholder="your.email@example.com"
+                    placeholder="your email"
                   />
                 </div>
               </div>
