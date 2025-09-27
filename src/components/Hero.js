@@ -20,11 +20,19 @@ const Hero = () => {
   const particlesRef = useRef(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
+    // Ensure we're on the client side and refs are available
+    if (typeof window === 'undefined') return;
+    
+    // Add a small delay to ensure all refs are properly set
+    const timer = setTimeout(() => {
+      const ctx = gsap.context(() => {
       // Create floating particles
       const createParticles = () => {
         const particles = [];
         const container = particlesRef.current;
+        
+        // Safety check for container
+        if (!container) return particles;
         
         for (let i = 0; i < 50; i++) {
           const particle = document.createElement('div');
@@ -49,7 +57,10 @@ const Hero = () => {
         return particles;
       };
 
-      createParticles();
+      // Only create particles if refs are available
+      if (particlesRef.current) {
+        createParticles();
+      }
 
       // Main timeline for entrance animations
       const mainTl = gsap.timeline({ delay: 0.5 });
@@ -65,10 +76,12 @@ const Hero = () => {
       });
 
       // Animate main title with split text effect
-      const titleChars = titleRef.current.textContent.split('');
-      titleRef.current.innerHTML = titleChars.map(char => 
-        char === ' ' ? ' ' : `<span class="char">${char}</span>`
-      ).join('');
+      if (titleRef.current) {
+        const titleChars = titleRef.current.textContent.split('');
+        titleRef.current.innerHTML = titleChars.map(char => 
+          char === ' ' ? ' ' : `<span class="char">${char}</span>`
+        ).join('');
+      }
 
       mainTl.from('.char', {
         opacity: 0,
@@ -81,13 +94,16 @@ const Hero = () => {
       }, '-=0.5');
 
       // Animate subtitle with typewriter effect
-      const subtitleText = subtitleRef.current.textContent;
-      subtitleRef.current.textContent = '';
+      const subtitleText = subtitleRef.current?.textContent || 'Full Stack Developer';
+      if (subtitleRef.current) {
+        subtitleRef.current.textContent = '';
+      }
       
       mainTl.call(() => {
         let i = 0;
         const typewriter = () => {
-          if (i < subtitleText.length) {
+          // Add null check to prevent errors
+          if (subtitleRef.current && i < subtitleText.length) {
             subtitleRef.current.textContent += subtitleText.charAt(i);
             i++;
             setTimeout(typewriter, 100);
@@ -97,12 +113,14 @@ const Hero = () => {
       }, [], '-=0.3');
 
       // Animate description
-      mainTl.from(descriptionRef.current, {
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        ease: 'power3.out'
-      }, '-=1');
+      if (descriptionRef.current) {
+        mainTl.from(descriptionRef.current, {
+          opacity: 0,
+          y: 50,
+          duration: 1,
+          ease: 'power3.out'
+        }, '-=1');
+      }
 
       // Animate buttons
       mainTl.from('.hero-button', {
@@ -133,25 +151,29 @@ const Hero = () => {
       }, '-=0.2');
 
       // Continuous floating animation for the whole hero
-      gsap.to(heroRef.current, {
-        y: -10,
-        duration: 3,
-        ease: 'power1.inOut',
-        yoyo: true,
-        repeat: -1
-      });
+      if (heroRef.current) {
+        gsap.to(heroRef.current, {
+          y: -10,
+          duration: 3,
+          ease: 'power1.inOut',
+          yoyo: true,
+          repeat: -1
+        });
+      }
 
       // Parallax effect on scroll
-      gsap.to('.hero-bg', {
-        yPercent: -50,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true
-        }
-      });
+      if (heroRef.current) {
+        gsap.to('.hero-bg', {
+          yPercent: -50,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: true
+          }
+        });
+      }
 
       // Button hover animations
       document.querySelectorAll('.hero-button').forEach(button => {
@@ -189,9 +211,14 @@ const Hero = () => {
         icon.addEventListener('mouseleave', () => tl.reverse());
       });
 
-    }, heroRef);
+      }, heroRef);
 
-    return () => ctx.revert();
+      return () => ctx.revert();
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
 
   return (

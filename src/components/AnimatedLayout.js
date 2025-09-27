@@ -1,49 +1,77 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+// Safely register GSAP plugins
+let ScrollTrigger;
 if (typeof window !== 'undefined') {
+  ScrollTrigger = require('gsap/ScrollTrigger').ScrollTrigger;
   gsap.registerPlugin(ScrollTrigger);
 }
 
 const AnimatedLayout = ({ children }) => {
   const containerRef = useRef(null);
   const gridRef = useRef(null);
+  const pageLoaderRef = useRef(null);
+  const [isNavigating, setIsNavigating] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const isClient = typeof window !== 'undefined';
+  const pathname = usePathname();
 
+  // Handle page load animation
   useEffect(() => {
-    // Initial page load animation
-    const tl = gsap.timeline();
+    if (!isClient) return;
     
-    tl.set('.page-loader', { opacity: 1 })
-      .to('.page-loader', { 
-        opacity: 0, 
-        duration: 0.5, 
-        delay: 0.5,
-        onComplete: () => {
-          document.querySelector('.page-loader')?.remove();
-        }
-      })
-      .from('.page-content', {
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        ease: 'power3.out'
-      }, '-=0.3');
+    // Wait for DOM to be ready to prevent hydration mismatches
+    const timer = setTimeout(() => {
+      const pageLoader = pageLoaderRef.current;
+      if (!pageLoader || isLoaded) return;
 
-    // Smooth scrolling is now handled by individual components
-    // Removed GSAP scrollTo to prevent conflicts
+      // Initial page load animation
+      const tl = gsap.timeline();
+      
+      tl.set(pageLoader, { opacity: 1 })
+        .to(pageLoader, { 
+          opacity: 0, 
+          duration: 0.5, 
+          delay: 0.5,
+          onComplete: () => {
+            setIsLoaded(true);
+            // Safely hide instead of removing to prevent DOM errors
+            if (pageLoader) {
+              pageLoader.style.display = 'none';
+            }
+          }
+        })
+        .from('.page-content', {
+          opacity: 0,
+          y: 50,
+          duration: 1,
+          ease: 'power3.out'
+        }, '-=0.3');
+    }, 100);
 
     // Cleanup
     return () => {
-      document.querySelectorAll('a[href^="#"]').forEach(link => {
-        link.removeEventListener('click', handleSmoothScroll);
-      });
+      clearTimeout(timer);
     };
-  }, []);
+  }, [isClient, pathname]); // Re-run on pathname change
+
+  // Handle navigation changes
+  useEffect(() => {
+    setIsNavigating(true);
+    const timer = setTimeout(() => {
+      setIsNavigating(false);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [pathname]);
 
   useEffect(() => {
+    if (!isClient) return;
+
     // Mouse movement parallax effect
     const handleMouseMove = (e) => {
       const { clientX, clientY } = e;
@@ -53,12 +81,16 @@ const AnimatedLayout = ({ children }) => {
       const moveX = (clientX - centerX) * 0.01;
       const moveY = (clientY - centerY) * 0.01;
 
-      gsap.to('.floating-element', {
-        x: moveX,
-        y: moveY,
-        duration: 1,
-        ease: 'power2.out'
-      });
+      // Check if floating elements exist before animating
+      const floatingElements = document.querySelectorAll('.floating-element');
+      if (floatingElements.length > 0) {
+        gsap.to('.floating-element', {
+          x: moveX,
+          y: moveY,
+          duration: 1,
+          ease: 'power2.out'
+        });
+      }
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -66,12 +98,16 @@ const AnimatedLayout = ({ children }) => {
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
-  }, []);
+  }, [isClient]);
 
   return (
     <>
       {/* Page Loader */}
-      <div className="page-loader fixed inset-0 bg-[var(--background)] z-50 flex items-center justify-center">
+      <div 
+        ref={pageLoaderRef}
+        className="page-loader fixed inset-0 bg-[var(--background)] z-50 flex items-center justify-center"
+        style={{ display: isLoaded ? 'none' : 'flex' }}
+      >
         <div className="relative">
           <div className="spinner glow-primary"></div>
           <div className="absolute inset-0 flex items-center justify-center">
