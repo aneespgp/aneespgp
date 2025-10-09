@@ -354,6 +354,13 @@ input:focus, textarea:focus {
   100% { transform: rotate(360deg); }
 }
 
+/* Critical: Ensure hero elements are visible */
+.hero-button,
+.social-icon {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   body::after {
