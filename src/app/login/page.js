@@ -33,7 +33,7 @@ function LoginPage() {
               <button className="w-full cursor-pointer py-2 rounded-lg bg-[var(--primary)] text-white font-semibold hover:bg-[var(--primary-dark)] transition-colors duration-300">Login</button>
             </div>
             <div className="mt-4 text-center">
-              <p className="text-[var(--muted-foreground)]">Don't have an account? <Link href="/signup" className="text-[var(--primary)] hover:underline">Sign Up</Link></p>
+              <p className="text-[var(--muted-foreground)]">Don&apos;t have an account? <Link href="/signup" className="text-[var(--primary)] hover:underline">Sign Up</Link></p>
             </div>
             <div className="otherAuthPlatforms">
               <div className="googleAuth">
