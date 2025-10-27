@@ -39,7 +39,7 @@ const Footer = () => {
               <a href="https://linkedin.com/in/aneespgp" target="_blank" rel="noopener noreferrer" className="w-10 h-10 glass border border-[var(--border)] rounded-lg flex items-center justify-center hover:scale-110 transition-all duration-300">
                 <FaLinkedin className="text-[var(--primary)] text-lg" />
               </a>
-              <a href="https://github.com/anees-tech" target="_blank" rel="noopener noreferrer" className="w-10 h-10 glass border border-[var(--border)] rounded-lg flex items-center justify-center hover:scale-110 transition-all duration-300">
+              <a href="https://github.com/aneespgp" target="_blank" rel="noopener noreferrer" className="w-10 h-10 glass border border-[var(--border)] rounded-lg flex items-center justify-center hover:scale-110 transition-all duration-300">
                 <FaGithub className="text-[var(--foreground)] text-lg" />
               </a>
               <a href="https://twitter.com/aneespgp_2" target="_blank" rel="noopener noreferrer" className="w-10 h-10 glass border border-[var(--border)] rounded-lg flex items-center justify-center hover:scale-110 transition-all duration-300">

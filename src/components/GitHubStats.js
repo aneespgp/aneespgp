@@ -15,7 +15,7 @@ const GitHubStats = () => {
               GitHub Stats
             </h3>
             <img 
-              src="https://github-readme-stats.vercel.app/api?username=anees-tech&show_icons=true&count_private=true&hide_border=true&theme=dark" 
+              src="https://github-readme-stats.vercel.app/api?username=aneespgp&show_icons=true&count_private=true&hide_border=true&theme=dark" 
               alt="GitHub Stats" 
               className="w-full rounded-lg"
             />
@@ -27,7 +27,7 @@ const GitHubStats = () => {
               Top Languages
             </h3>
             <img 
-              src="https://github-readme-stats.vercel.app/api/top-langs/?username=anees-tech&hide_border=true&layout=compact&theme=dark" 
+              src="https://github-readme-stats.vercel.app/api/top-langs/?username=aneespgp&hide_border=true&layout=compact&theme=dark" 
               alt="Top Languages" 
               className="w-full rounded-lg"
             />
@@ -38,7 +38,7 @@ const GitHubStats = () => {
           <div className="inline-flex items-center glass px-6 py-3 rounded-full border border-[var(--border)]">
             <FaEye className="mr-3 text-[var(--primary)]" />
             <Image 
-              src="https://komarev.com/ghpvc/?username=anees-tech&&style=flat-square" 
+              src="https://komarev.com/ghpvc/?username=aneespgp&&style=flat-square" 
               alt="Profile Views" 
               width={150}
               height={24}
