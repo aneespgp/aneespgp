@@ -174,7 +174,7 @@ const Header = () => {
               ))}
             </ul>
           </nav>
-          <div className='authButtons ml-6 flex space-x-4 hidden md:flex'>
+          <div className='authButtons ml-6 space-x-4 hidden md:flex'>
             <Link className='px-4 py-2 rounded-lg glass border border-[var(--border)] text-[var(--foreground)] hover:bg-[var(--background-secondary)] hover:text-[var(--primary)] transition-all duration-300' href={"/login"}>Login</Link>
             <Link className='px-4 py-2 rounded-lg glass border border-[var(--border)] text-[var(--foreground)] hover:bg-[var(--background-secondary)] hover:text-[var(--primary)] transition-all duration-300' href={'/signup'} >Sign Up</Link>
           </div>

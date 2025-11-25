@@ -67,13 +67,28 @@ const Contact = () => {
       }, '-=0.8');
 
       // Form field animations
-      mainTl.from('.form-field', {
-        opacity: 0,
-        y: 30,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: 'power2.out'
-      }, '-=0.5');
+      const formFields = sectionRef.current.querySelectorAll('.form-field');
+      if (formFields.length > 0) {
+        mainTl.from(formFields, {
+          opacity: 0,
+          y: 30,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: 'power2.out'
+        }, '-=0.5');
+      }
+
+      // Submit button animation (separate)
+      const submitBtn = sectionRef.current.querySelector('.submit-btn');
+      if (submitBtn) {
+        mainTl.from(submitBtn, {
+          opacity: 0,
+          scale: 0.8,
+          y: 20,
+          duration: 0.8,
+          ease: 'back.out(1.7)'
+        }, '-=0.3');
+      }
 
       // Social links animation
       mainTl.from('.social-link', {
@@ -252,17 +267,17 @@ const Contact = () => {
               
               <button 
                 type="submit" 
-                className="form-field w-full py-4 px-8 rounded-xl font-bold text-lg glass border border-[var(--border)] text-[var(--foreground)] relative overflow-hidden group transition-all duration-300 hover:scale-105"
+                className="submit-btn w-full py-4 px-8 rounded-xl font-bold text-lg bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] text-white relative overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"
                 style={{ 
-                  background: 'linear-gradient(135deg, var(--primary)20, var(--secondary)20)',
-                  boxShadow: '0 0 30px var(--primary)30'
+                  boxShadow: '0 0 30px rgba(0, 245, 255, 0.3)',
+                  opacity: 1
                 }}
               >
                 <span className="relative z-10 flex items-center justify-center gap-3">
                   <FaPaperPlane className="text-lg" />
                   Send Message
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-[var(--secondary)] to-[var(--accent)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
             </form>
           </div>
