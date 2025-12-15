@@ -56,9 +56,9 @@ export const metadata = {
     siteName: "Anees-ur-Rehman Portfolio",
     images: [
       {
-        url: "https://github-readme-stats.vercel.app/api?username=anees-tech&show_icons=true&count_private=true&hide_border=true&theme=dark",
-        width: 1200,
-        height: 630,
+        url: "https://aneespgp.vercel.app/android-chrome-512x512.png",
+        width: 512,
+        height: 512,
         alt: "Anees-ur-Rehman - Full Stack Developer",
       },
     ],
@@ -68,7 +68,7 @@ export const metadata = {
     title: "Anees-ur-Rehman - Full Stack Developer | MERN Stack Expert",
     description: "Full-stack developer specializing in React, Next.js, Node.js, and MongoDB. Expert in MERN stack with years of freelancing experience.",
     creator: "@aneespgp_2",
-    images: ["https://github-readme-stats.vercel.app/api?username=anees-tech&show_icons=true&count_private=true&hide_border=true&theme=dark"],
+    images: ["https://aneespgp.vercel.app/android-chrome-512x512.png"],
   },
   verification: {
     google: "your-google-verification-code",
