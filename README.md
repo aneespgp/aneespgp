@@ -75,7 +75,6 @@ Ready to bring your ideas to life with cutting-edge technology and creative engi
 * **Portfolio Website:** [https://www.aneespgp.com/](https://www.aneespgp.com/)
 * **Email (Direct):** `aneesliaqat555@gmail.com`
 * **Twitter/X:** [@aneesPGP\_2](https://x.com/aneesPGP_2)
-* **LinkedIn:** [Your LinkedIn Profile URL](https://www.linkedin.com/in/your-profile-url) <p align="center">
   <a href="mailto:aneesliaqat555@gmail.com?subject=Collaboration%20Inquiry%20from%20GitHub&body=Hello%20Anees-ur-Rehman,%0D%0A%0D%0AI%20saw%20your%20GitHub%20profile%20and%20was%20impressed.%20I%20am%20looking%20to%20collaborate%20on...%0D%0A%0D%0A[Your%20Name]"><img src="https://img.shields.io/badge/Send_Me_an_Email-C7162A?style=for-the-badge&logo=gmail&logoColor=white" alt="Email Button"></a>
   <a href="https://www.aneespgp.com/#contact" target="_blank"><img src="https://img.shields.io/badge/Hire_Me-0077B5?style=for-the-badge&logo=fiverr&logoColor=white" alt="Hire Me Button"></a>
 </p>
